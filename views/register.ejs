@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/register.css">
+</head>
+
+<body>
+    <div class="main">
+        <form action="/register" method="post" autocomplete="off">
+            <h3 class="title">Sign Up</h3>
+            <div class="divss">
+                <div class="name divs">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" autocomplete="off" required>
+                </div>
+                <div class="username divs">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" autocomplete="off" required>
+                </div>
+                <div class="password divs">
+                    <label for="password">Password</label>
+                    <div class="pass">
+                        <input type="password" name="password" id="password" autocomplete="off" required>
+                        <input type="checkbox" name="pswd" class="spc" id="togglePassword">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" id="submit" class="submit">Sign Up</button>
+            <a href="/" class="link">Already have an account. Log In</a>
+        </form>
+    </div>
+
+
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordInput = document.getElementById('password');
+            passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+        });
+    </script>
+</body>
+
+</html>

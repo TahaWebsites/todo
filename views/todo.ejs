@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/todo.css">
+    <title>Todo App - <%= name %></h2></title>
+</head>
+
+<body>
+    <% if(message && message.length> 0) {%>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong> <%= message %> </strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        <% } %>
+
+
+        
+
+            <div class="nav">
+                <!-- <div class="burger">
+            <div class="bars bars1"></div>
+            <div class="bars bars2"></div>
+            <div class="bars bars3"></div>
+        </div> -->
+                <!-- <h2 class="title">Welcome, <%= name %>!</h2> -->
+                <h2 class="title">Todo Node Web App</h2>
+                <a href="/logout" class="alink">
+                    <li class="link">Logout</li>
+                </a>
+            </div>
+
+            <div class="main-container">
+                <form action="/home" method="post" autocomplete="off">
+                    <input type="text" name="task" id="task" placeholder="Enter a Task">
+                    <button type="submit" class="submitbtn">Add Task</button>
+                </form>
+
+                <div class="allTasks">
+                    <% userDetails.tasks.forEach((task)=> { %>
+                        <!-- <%= task._id %> -->
+                        <div class="tasks">
+                            <p class="task-title">
+                                <%= task.taskTitle %>
+                            </p>
+                            <a href="<%= url + task._id %>" class="deletebtn">Delete</a>
+                        </div>
+                        <% }); %>
+                </div>
+
+            </div>
+
+            <script src="/script.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+                crossorigin="anonymous"></script>
+</body>
+
+</html>
